@@ -40,11 +40,12 @@ print(sales)
 Think of a DataFrame as a collection of multiple Series objects glued together, sharing the exact same row labels (index).  
          - Series (1D): A single column of data with row labels.  
          - DataFrame (2D): A grid of data with both Row Labels (Index) and Column Labels (Headers).
-- Unlike series, a dataframe is a heterogeneous it can contain the columns of differenet data types
+- Unlike series, a dataframe is a heterogeneous it can contain the columns of differenet data types  
+  
 COMMON DATAFRAME COMPONENTS :
-1. df.values
+1. df.values  
    What it does: Strips away all row and column labels, leaving only the raw data.  
-   How to use it: Use it when you need to pass your data    
+   How to use it: Use it when you need to pass your data
    into machine learning libraries (like NumPy or Scikit-Learn) that don't use Pandas labels.  
    The Output: It returns a NumPy ndarray (a multi-dimensional array of pure data).  
 3. df.index
@@ -52,7 +53,7 @@ COMMON DATAFRAME COMPONENTS :
 HOW TO USE THEM AND WHAT TYPE OF OUTPUT THEY GIVE ??
 ```python
 import pandas as pd
-data = {'Price': [1.50, 2.99], 'Stock':}
+data = {'Price': [1.50, 2.99], 'Stock':[100,45]}
 df = pd.DataFrame(data, index=['Apple', 'Banana'])
 ```
 ```python
