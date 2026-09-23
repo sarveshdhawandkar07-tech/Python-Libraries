@@ -52,7 +52,8 @@ df.query('city in ["NY", "SF"]')
 x = 30
 df.query('age > @x')     # reference external variables with @
 ```
-- Here we don't have to use brackets for each condition we write the query like a sentence in quotes.  
+- Here we don't have to use brackets for each condition we write the query like a sentence in quotes.
+- If your column name contains white spaces you have write that column name in the backticks.(for ex., `Type 1`)  
   
 **String Based Filtering** :  
 ```python
