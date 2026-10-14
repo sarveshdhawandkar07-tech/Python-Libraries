@@ -13,5 +13,13 @@ dataframe is empty or their is no second largest value then we have to return No
  **Space Complexity :** O(n) 
 
  **Optimal Approach :**
- - 
+ - use .drop_duplicates() function to remove duplicates from series (salary).
+ - use .nlargest(n) function which extracts the n largest values from the dataframe in sorted order (lowest --> highest)
+   and the rest of the logic will be same.
+
+**Time Complexity :** O(n) for dropping duplicates
+**Space Complexity** : O(n) when dropping duplicates (worst case --> all are unique values)
+
+
+
  
