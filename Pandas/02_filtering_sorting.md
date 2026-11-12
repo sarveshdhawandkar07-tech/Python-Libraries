@@ -76,6 +76,48 @@ df.filter(items=['name', 'age'])              # keep specific columns
 df.filter(like='a')                            # columns containing 'a' in name
 df.filter(regex='^c')                          # columns matching regex
 ```
+
+**Grouping The Columns** :  
+.groupby() :  
+- This function splits the Dataframe into groups based on values in one or more columns, applies an operation to each group separately, and combines the results into one output.  
+- for ex.,
+  ```python
+    import pandas as pd
+
+    df = pd.DataFrame({
+    'department': ['CS', 'CS', 'AI', 'AI', 'AI', 'IT'],
+    'student':    ['A', 'B', 'C', 'D', 'E', 'F'],
+    'marks':      [80, 70, 90, 85, 95, 60],
+    'age':        [19, 20, 19, 21, 20, 19]
+    })
+
+    df.groupby('department')['marks'].mean()
+  ```
+  - here, df.groupby('department') create the groups based on the different departments like CS, AI, IT and the access the marks of each department then find out the mean of that marks for each department.
+  - Group by doesn't compute anything It just prepares the groups. The calculation happens when you call an aggregation on it.
+  - If you want to apply the multiple aggregation functions at same time use .agg() function
+  ```python
+  df.groupby('department')['marks'].agg(['mean', 'max', 'min'])
+  ```
+  Different functions for different columns:
+  ```python
+  df.groupby('department').agg({
+    'marks': ['mean', 'max'],
+    'age': 'min'
+  })
+  ```
+  Named output columns:
+  ```python
+  df.groupby('department').agg(
+    avg_marks=('marks', 'mean'),
+    top_marks=('marks', 'max'),
+    students=('student', 'count')
+    )
+  ```
+  Grouping by multiple columns:
+  ```python
+  df.groupby(['department', 'age'])['marks'].mean()
+  ``` 
   
 **Sorting :**  
 
