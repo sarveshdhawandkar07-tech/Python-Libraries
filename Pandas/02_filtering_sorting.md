@@ -191,4 +191,32 @@ df['city'].value_counts()    # NY:3, LA:2, SF:1
 df['city'].value_counts().index[0]     # most frequent value
 df['city'].value_counts().idxmax()      # same result, more idiomatic
 ```
-  
+
+
+**df.drop() Method :**  
+- drop() removes rows or columns.
+for removing columns :
+```python
+df.drop(columns='city')                 # one column
+df.drop(columns=['city', 'score'])      # several columns
+df.drop('city', axis=1)                 # older style, same result
+```
+Prefer columns= because it is clearer and you don’t have to remember axis=1  
+Dropping rows by index label :  
+```python
+df.drop(index=1)           # one row
+df.drop(index=[0, 2])      # several rows
+df.drop([0, 2])            # axis=0 is the default
+```
+drop works on labels, not positions. If your index isn’t 0, 1, 2..., then df.drop(index=1) removes the row labelled 1, not the second row.  
+Dropping rows by position :  
+```python
+df.drop(df.index[[0, 2]])   # drop 1st and 3rd rows, whatever their labels
+```
+Related Methods :  
+df.dropna() --> Drop rows or columns containing NaN  
+df.drop_duplicates() --> Drop duplicate rows  
+df.pop('col') --> Remove a column and return it  
+del df['col'] --> Delete a column in place  
+
+
